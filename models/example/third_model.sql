@@ -1,1 +1,1 @@
-select 12
+select 123 as column_one
