@@ -26,5 +26,7 @@ jobs:
         url: 'https://cloud.getdbt.com/api/v2/accounts/96504/runs/?job_definition_id=130247'
         method: 'GET'
         customHeaders: '{"Authorization": "${{ secrets.NON_PII_API_KEY }}"}'
-        run: |
-          echo ${{ steps.get_dbt_cloud_run.outputs.response }}
+     - name: Show Response
+       run: |
+        echo ${{ steps.get_dbt_cloud_run.outputs.response }}
+        echo "testing this"
