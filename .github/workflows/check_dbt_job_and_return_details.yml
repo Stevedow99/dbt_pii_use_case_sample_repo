@@ -24,7 +24,7 @@ jobs:
         uses: stevedow99/sample-python-action@main
         with:
           dbt_cloud_token: ${{ secrets.DBT_CLOUD_TOKEN }}
-          dbt_cloud_account_id: ${{ secrets.DBT_CLOUD_ACCOUNT_ID }}
+          dbt_cloud_account_id: 96504
           dbt_cloud_job_id: 130247
       - name: Check on dbt cloud job failures
         if:  steps.selftest.outputs.dbt_cloud_job_run_status != 'Success'
