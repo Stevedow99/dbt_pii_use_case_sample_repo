@@ -19,14 +19,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-     - name: Get dbt Cloud Job Status
-       id: get_dbt_cloud_run
-       uses: fjogeleit/http-request-action@v1
-       with:
-        url: 'https://cloud.getdbt.com/api/v2/accounts/96504/runs/?job_definition_id=130247'
-        method: 'GET'
-        customHeaders: '{"Authorization": "${{ secrets.NON_PII_API_KEY }}"}'
-     - name: Show Response
-       run: |
-        echo ${{ steps.get_dbt_cloud_run.outputs.response }} | jq '.data[0] .id'
-        echo "testing this"
+      - name: Self test
+        id: selftest
+        uses: Stevedow99/sample-python-action@master
+        with:
+          myInput: "worldly"
+      - name: Check outputs and modified files
+        run: |
+                    echo "${{ steps.selftest.outputs.myOutput }}"
