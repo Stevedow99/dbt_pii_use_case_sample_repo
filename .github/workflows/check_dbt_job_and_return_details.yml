@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Self test
         id: selftest
-        uses: Stevedow99/sample-python-action@master
+        uses: Stevedow99/sample-python-action@main
         with:
           myInput: "worldly"
       - name: Check outputs and modified files
