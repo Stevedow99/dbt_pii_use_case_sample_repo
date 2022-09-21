@@ -36,7 +36,7 @@ jobs:
         with:
           message: |
             ## ✅ dbt Cloud job finished with the status ${{ steps.selftest.outputs.dbt_cloud_job_run_status }}
-            View the dbt Cloud job run [here]${{ steps.selftest.outputs.dbt_cloud_job_run_url }}"
+            View the dbt Cloud job run [here](${{ steps.selftest.outputs.dbt_cloud_job_run_url }})
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]'
           allow-repeats: false # This is the default
@@ -49,7 +49,7 @@ jobs:
         with:
           message: |
             ## ❌ dbt Cloud job finished with the status ${{ steps.selftest.outputs.dbt_cloud_job_run_status }}
-            View the dbt Cloud job run [here]${{ steps.selftest.outputs.dbt_cloud_job_run_url }}"
+            View the dbt Cloud job run [here](${{ steps.selftest.outputs.dbt_cloud_job_run_url }})
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]'
           allow-repeats: false # This is the default
