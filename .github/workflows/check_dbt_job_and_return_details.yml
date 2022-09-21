@@ -19,8 +19,8 @@ jobs:
 
     steps:
       - name: Get dbt cloud run id
-      - uses: catchco/dbt-cloud-get-run-id@latest
         id: dbt_cloud_get_run_id
+        uses: catchco/dbt-cloud-get-run-id@latest
         with:
             dbt_cloud_account_id: 96504
             dbt_cloud_api_key: ${{ secrets.NON_PII_API_KEY }}
