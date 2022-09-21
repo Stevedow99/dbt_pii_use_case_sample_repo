@@ -38,7 +38,6 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.3.1
       if: always()
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
         name: Test XYZ
         conclusion: success
         action_url: https://example.com/action
