@@ -32,6 +32,7 @@ jobs:
       # if the job run was a success we comment on the PR with a check and a link to the dbt Cloud Job run
       - name: PR comment with sucess
         uses: mshick/add-pr-comment@v1
+        if:  steps.selftest.outputs.dbt_cloud_job_run_status == 'Success'
         with:
           message: |
             ## ✅ dbt Cloud job finished with the status ${{ steps.selftest.outputs.dbt_cloud_job_run_status }}
@@ -44,6 +45,7 @@ jobs:
       # if the run was a failure we comment on the PR with a X and a link to the dbt Cloud Job run
       - name: PR comment with failure
         uses: mshick/add-pr-comment@v1
+        if:  steps.selftest.outputs.dbt_cloud_job_run_status != 'Success'
         with:
           message: |
             ## ❌ dbt Cloud job finished with the status ${{ steps.selftest.outputs.dbt_cloud_job_run_status }}
