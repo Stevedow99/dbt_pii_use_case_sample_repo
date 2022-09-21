@@ -25,7 +25,7 @@ jobs:
         with:
           dbt_cloud_token: ${{ secrets.DBT_CLOUD_API_TOKEN }}
           dbt_cloud_account_id: ${{ secrets.DBT_CLOUD_ACCOUNT_ID }}
-          dbt_cloud_job_id: "130247"
+          dbt_cloud_job_id: 130247
       - name: Check outputs and modified files
         run: |
                     echo "${{ steps.selftest.outputs.myOutput }}"
