@@ -23,8 +23,8 @@ jobs:
         id: selftest
         uses: stevedow99/sample-python-action@main
         with:
-          dbt_cloud_token: ${{ secrets.DBT_CLOUD_API_TOKEN }}
-          dbt_cloud_account_id: ${{ secrets.DBT_CLOUD_ACCOUNT_ID }}
+          dbt_cloud_token: dbts_dQMR05cc7A9upnwhGL7V9272wE8JER7sojqVJ5PHCZJf71t7kELcQ6cQ==
+          dbt_cloud_account_id: 96504
           dbt_cloud_job_id: 130247
       - name: Check outputs and modified files
         run: |
