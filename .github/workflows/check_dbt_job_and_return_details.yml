@@ -22,8 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-
-      # running the step to get the most recent job run results and return the status
       - name: Get dbt Cloud job run and return the status
         id: get_job_run
         uses: stevedow99/dbt-cloud-get-job-run-action@v1.0
@@ -31,19 +29,3 @@ jobs:
           dbt_cloud_token: ${{ secrets.DBT_CLOUD_TOKEN }}
           dbt_cloud_account_id: 96504
           dbt_cloud_job_id: 130247
-
-      # using the returned run status to throw an error on the PR if the dbt cloud job was not a sucess
-      - name: Check on dbt cloud job failures
-        if:  steps.get_job_run.outputs.dbt_cloud_job_run_status != 'Success'
-        run: |
-          echo "dbt cloud job failed or was cancelled, run status: ${{ steps.get_job_run.outputs.dbt_cloud_job_run_status }}"
-          echo "view dbt cloud job run here: ${{ steps.get_job_run.outputs.dbt_cloud_job_run_url }}"
-          exit 1
-
-        # if the job was a success we log it
-      - name: Check on dbt cloud job success
-        if:  steps.get_job_run.outputs.dbt_cloud_job_run_status == 'Success'
-        run: |
-          echo "dbt cloud finished sucessfully, run status: ${{ steps.get_job_run.outputs.dbt_cloud_job_run_status }}"
-          echo "view dbt cloud job run here: ${{ steps.get_job_run.outputs.dbt_cloud_job_run_url }}"
-          exit 0
