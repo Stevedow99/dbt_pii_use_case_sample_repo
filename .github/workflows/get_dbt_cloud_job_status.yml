@@ -16,8 +16,8 @@ jobs:
   test_with_details:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./check_dbt_job_and_return_details.yml
+    - uses: actions/checkout@v1 
+    - uses: .github/workflows/check_dbt_job_and_return_details.yml
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Test With Details
