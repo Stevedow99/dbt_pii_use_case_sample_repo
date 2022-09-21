@@ -40,5 +40,6 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Test XYZ
+        conclusion: success
         action_url: https://example.com/action
         details_url: https://example.com/details
