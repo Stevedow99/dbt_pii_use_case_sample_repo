@@ -26,6 +26,14 @@ jobs:
           dbt_cloud_token: ${{ secrets.DBT_CLOUD_TOKEN }}
           dbt_cloud_account_id: 96504
           dbt_cloud_job_id: 130247
+      - uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            dbt Cloud job finished with the status **${{ steps.selftest.outputs.dbt_cloud_job_run_status }}**
+            View the dbt Cloud job run [here](${{ steps.selftest.outputs.dbt_cloud_job_run_url }})
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]'
+          allow-repeats: false # This is the default
       - name: Check on dbt cloud job failures
         if:  steps.selftest.outputs.dbt_cloud_job_run_status != 'Success'
         run: |
