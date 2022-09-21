@@ -27,13 +27,13 @@ jobs:
           dbt_cloud_account_id: ${{ secrets.DBT_CLOUD_ACCOUNT_ID }}
           dbt_cloud_job_id: 130247
       - name: Check on dbt cloud job failures
-        if:  steps.selftest.outputs.dbtcloudjobstatus != "Success"
+        if:  steps.selftest.outputs.dbt_cloud_job_run_status != "Success"
         run: |
           echo "dbt cloud job failed or was cancelled, run status: ${{ steps.selftest.outputs.dbt_cloud_job_run_status }}"
           echo "view dbt cloud job run here: ${{ steps.selftest.outputs.dbt_cloud_job_run_url }}"
           exit 1
-      - name: Check on dbt cloud job sucess
-        if:  steps.selftest.outputs.dbtcloudjobstatus == "Success"
+      - name: Check on dbt cloud job success
+        if:  steps.selftest.outputs.dbt_cloud_job_run_status == "Success"
         run: |
           echo "dbt cloud finished sucessfully, run status: ${{ steps.selftest.outputs.dbt_cloud_job_run_status }}"
           echo "view dbt cloud job run here: ${{ steps.selftest.outputs.dbt_cloud_job_run_url }}"
