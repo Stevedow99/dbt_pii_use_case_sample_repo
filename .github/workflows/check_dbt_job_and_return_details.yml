@@ -39,7 +39,5 @@ jobs:
       if: always()
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        name: Test XYZ
-        conclusion: ${{ job.status }}
-        output: |
-          {"summary":${{ steps.test.outputs.summary }}}
+        action_url: https://example.com/action
+        details_url: https://example.com/details
