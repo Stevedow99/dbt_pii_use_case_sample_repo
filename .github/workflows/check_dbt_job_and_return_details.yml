@@ -17,15 +17,16 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Get dbt cloud run id
-        id: dbt_cloud_get_run_id
-        uses: catchco/dbt-cloud-get-run-id@v0.2.0-alpha
-        with:
-            dbt_cloud_account_id: "96504"
-            dbt_cloud_api_key: ${{ secrets.NON_PII_API_KEY }}
-            dbt_cloud_job_id: "130247"
-            dbt_cloud_request_limit: 1000
-      - name: Show Response
-        run: |
-          echo ${{ steps.dbt_cloud_get_run_id.outputs }}
+     - name: Get dbt Cloud Job Status
+       id: get_dbt_cloud_run
+       uses: fjogeleit/http-request-action@v1
+       with:
+        url: 'https://cloud.getdbt.com/api/v2/accounts/96504/runs/?job_definition_id=130247'
+        method: 'GET'
+        customHeaders: '{"Authorization": "${{ secrets.NON_PII_API_KEY }}"}'
+     - name: Show Response
+       run: |
+        echo ${{ steps.get_dbt_cloud_run.outputs.response }}
+        echo "testing this"
