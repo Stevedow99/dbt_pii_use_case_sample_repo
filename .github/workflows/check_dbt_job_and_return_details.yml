@@ -28,5 +28,5 @@ jobs:
         customHeaders: '{"Authorization": "${{ secrets.NON_PII_API_KEY }}"}'
      - name: Show Response
        run: |
-        echo ${{ steps.get_dbt_cloud_run.outputs.response }}
+        echo ${{ steps.get_dbt_cloud_run.outputs.response }} | jq '.data'
         echo "testing this"
