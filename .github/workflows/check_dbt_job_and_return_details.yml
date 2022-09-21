@@ -27,7 +27,7 @@ jobs:
           dbt_cloud_account_id: ${{ secrets.DBT_CLOUD_ACCOUNT_ID }}
           dbt_cloud_job_id: 130247
       - name: temp test
-        run: echo "${{ steps.selftest.outputs.dbtcloudjobstatus }}""
+        run: echo "${{ steps.selftest.outputs.dbtcloudjobstatus }}"
       - name: Check on dbt cloud job failures
         if:  steps.selftest.outputs.dbtcloudjobstatus != 'Success'
         run: |
