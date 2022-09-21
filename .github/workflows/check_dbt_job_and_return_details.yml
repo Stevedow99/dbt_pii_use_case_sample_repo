@@ -35,4 +35,4 @@ jobs:
         if:  steps.selftest.outputs.myOutput == 'Success'
         run: |
           echo "dbt cloud job was sucessful"
-          exit 0
+          exit 1
