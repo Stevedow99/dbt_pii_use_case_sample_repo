@@ -29,8 +29,8 @@ jobs:
         uses: stevedow99/dbt-cloud-get-job-run-action@v1.0
         with:
           dbt_cloud_token: ${{ secrets.DBT_CLOUD_TOKEN }}
-          dbt_cloud_account_id: 96504
-          dbt_cloud_job_id: 130247
+          dbt_cloud_account_id: 12345
+          dbt_cloud_job_id: 976543
 
       # if the job run was a success we comment on the PR with a check and a link to the dbt Cloud Job run
       - name: PR comment with sucess
