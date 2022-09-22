@@ -1,1 +1,1 @@
-select 12346789 as column_one
+select 1234 as column_one
