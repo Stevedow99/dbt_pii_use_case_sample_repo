@@ -72,4 +72,3 @@ jobs:
           echo "dbt cloud finished sucessfully, run status: ${{ steps.get_job_run.outputs.dbt_cloud_job_run_status }}"
           echo "view dbt cloud job run here: ${{ steps.get_job_run.outputs.dbt_cloud_job_run_url }}"
           exit 0
-      
